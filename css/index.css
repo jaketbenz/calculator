@@ -1,0 +1,22 @@
+:root {
+	--primary-light: #fefefe;
+	--primary-dark: #1f2937;
+}
+html,
+body {
+	background-color: #81d8d0 !important;
+}
+.container {
+	min-height: 100vh;
+}
+
+.footer {
+	width: 100%;
+	position: absolute;
+	bottom: 0;
+	color: var(--primary-light);
+	text-shadow: rgba(0, 0, 0, 0.24) 0px 10px 8px;
+}
+.footer--link {
+	color: var(--primary-light);
+}

@@ -9,7 +9,58 @@ body {
 .container {
 	min-height: 100vh;
 }
-
+.output--container {
+	height: 10rem;
+	width: 20.1rem;
+	background-color: black;
+}
+.previous--operand,
+.current--operand {
+	color: white;
+	font-size: 3rem;
+}
+.button--container {
+	width: 20.1rem;
+	border: 1px solid black;
+	/* width: 20rem; */
+}
+button {
+	padding: 0 !important;
+	/* border: 1px solid black; */
+}
+/* button:hover{
+	background-color: #ddd;
+} */
+.button--double {
+	height: 5rem;
+	width: 10rem !important;
+}
+.button--single {
+	height: 5rem;
+	width: 5rem !important;
+}
+.clear,
+.number,
+.point {
+	background-color: lightgrey;
+}
+.clear:hover,
+.number:hover,
+.point:hover {
+	background-color: darkgrey;
+}
+.delete {
+	background-color: darkred;
+}
+.delete:hover {
+	background-color: maroon;
+}
+.operator {
+	background-color: orange;
+}
+.operator:hover {
+	background-color: darkorange;
+}
 .footer {
 	width: 100%;
 	position: absolute;

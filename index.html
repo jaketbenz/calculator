@@ -29,48 +29,66 @@
     <main
         class="container d-flex flex-column justify-content-center align-items-center">
         <div
-            class="output--container d-flex flex-column justify-content-end align-items-end">
-            <div class="previous--operand me-3" data-previous-operand></div>
-            <div class="current--operand me-3" data-current-operand>0</div>
+            class="outputContainer d-flex flex-column justify-content-end align-items-end">
+            <div class="outputContainer__previous me-3" data-previous-operand>
+            </div>
+            <div class="outputContainer__current me-3" data-current-operand>0
+            </div>
         </div>
-        <div class="button--container d-flex flex-column align-items-center">
+        <div class="buttonContainer d-flex flex-column align-items-center">
             <div class="d-flex row">
-                <button class="button--double clear">Clear</button>
-                <button class="button--double delete">Delete</button>
+                <button class="button__double button--grey clear">Clear</button>
+                <button
+                    class="button__double button--red delete">Delete</button>
             </div>
             <div class="d-flex row">
-                <button class="button--single number" data-number>7</button>
-                <button class="button--single number" data-number>8</button>
-                <button class="button--single number" data-number>9</button>
-                <button class="button--single operator" data-operator>÷</button>
+                <button class="button__single button--grey number"
+                    data-number>7</button>
+                <button class="button__single button--grey number"
+                    data-number>8</button>
+                <button class="button__single button--grey number"
+                    data-number>9</button>
+                <button class="button__single button--orange operator"
+                    data-operator>÷</button>
             </div>
             <div class="d-flex row">
-                <button class="button--single number" data-number>4</button>
-                <button class="button--single number" data-number>5</button>
-                <button class="button--single number" data-number>6</button>
-                <button class="button--single operator" data-operator>x</button>
+                <button class="button__single button--grey number"
+                    data-number>4</button>
+                <button class="button__single button--grey number"
+                    data-number>5</button>
+                <button class="button__single button--grey number"
+                    data-number>6</button>
+                <button class="button__single button--orange operator"
+                    data-operator>x</button>
             </div>
             <div class="d-flex row">
-                <button class="button--single number" data-number>1</button>
-                <button class="button--single number" data-number>2</button>
-                <button class="button--single number" data-number>3</button>
-                <button class="button--single operator" data-operator>-</button>
+                <button class="button__single button--grey number"
+                    data-number>1</button>
+                <button class="button__single button--grey number"
+                    data-number>2</button>
+                <button class="button__single button--grey number"
+                    data-number>3</button>
+                <button class="button__single button--orange operator"
+                    data-operator>-</button>
             </div>
             <div class="d-flex row">
-                <button class="button--single point">.</button>
-                <button class="button--single number" data-number>0</button>
-                <button class="button--single equal operator">=</button>
-                <button class="button--single operator" data-operator>+</button>
+                <button class="button__single button--grey point">.</button>
+                <button class="button__single button--grey number"
+                    data-number>0</button>
+                <button
+                    class="button__single button--orange equal operator">=</button>
+                <button class="button__single button--orange operator"
+                    data-operator>+</button>
             </div>
         </div>
     </main>
-    <footer class="footer d-flex justify-content-center">
+    <footer class="footerContainer d-flex justify-content-center">
         <p>
-            Made by <a class="footer--link" href="https://jakebenz.dev">Jake
+            Made by <a class="footer__link" href="https://jakebenz.dev">Jake
                 Benz</a>
             |
-            <a class="footer--link"
-                href="https://https://github.com/jaketbenz/calculator">Github</a>
+            <a class="footer__link"
+                href="https://github.com/jaketbenz/calculator">Github</a>
             <i class="fa-brands fa-github"></i>
         </p>
     </footer>

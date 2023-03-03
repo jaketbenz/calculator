@@ -9,65 +9,57 @@ body {
 .container {
 	min-height: 100vh;
 }
-.output--container {
+.outputContainer {
 	height: 10rem;
 	width: 20.1rem;
 	background-color: black;
 }
-.previous--operand,
-.current--operand {
+.outputContainer__previous,
+.outputContainer__current {
 	color: white;
 	font-size: 3rem;
 }
-.button--container {
+.buttonContainer {
 	width: 20.1rem;
 	border: 1px solid black;
 	/* width: 20rem; */
 }
 button {
 	padding: 0 !important;
-	/* border: 1px solid black; */
 }
-/* button:hover{
-	background-color: #ddd;
-} */
-.button--double {
+.button__double {
 	height: 5rem;
 	width: 10rem !important;
 }
-.button--single {
+.button__single {
 	height: 5rem;
 	width: 5rem !important;
 }
-.clear,
-.number,
-.point {
+.button--grey {
 	background-color: lightgrey;
 }
-.clear:hover,
-.number:hover,
-.point:hover {
+.button--grey:hover {
 	background-color: darkgrey;
 }
-.delete {
+.button--red {
 	background-color: darkred;
 }
-.delete:hover {
+.button--red:hover {
 	background-color: maroon;
 }
-.operator {
+.button--orange {
 	background-color: orange;
 }
-.operator:hover {
+.button--orange:hover {
 	background-color: darkorange;
 }
-.footer {
+.footerContainer {
 	width: 100%;
 	position: absolute;
 	bottom: 0;
 	color: var(--primary-light);
 	text-shadow: rgba(0, 0, 0, 0.24) 0px 10px 8px;
 }
-.footer--link {
+.footer__link {
 	color: var(--primary-light);
 }

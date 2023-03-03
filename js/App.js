@@ -1,5 +1,5 @@
-const previousOperand = document.querySelector(".previous--operand");
-const currentOperand = document.querySelector(".current--operand");
+const previousOperand = document.querySelector(".outputContainer__previous");
+const currentOperand = document.querySelector(".outputContainer__current");
 const clearButton = document.querySelector(".clear");
 const deleteButton = document.querySelector(".delete");
 const numberButton = document.querySelectorAll("[data-number");
@@ -12,40 +12,39 @@ let secondNumber = "";
 let operation = null;
 let resetNeeded = false;
 
-clearButton.addEventListener("click", clearScreen);
-function clearScreen() {
+const clearScreen = () => {
 	currentOperand.textContent = "0";
 	previousOperand.textContent = "";
 	firstNumber = "";
 	secondNumber = "";
 	operation = null;
-}
-function resetScreen() {
+};
+clearButton.addEventListener("click", clearScreen);
+
+const resetScreen = () => {
 	currentOperand.textContent = "";
 	resetNeeded = false;
-}
+};
 
-deleteButton.addEventListener("click", deleteNumber);
-function deleteNumber() {
+const deleteNumber = () => {
 	currentOperand.textContent = currentOperand.textContent
 		.toString()
 		.slice(0, -1);
-}
+};
+deleteButton.addEventListener("click", deleteNumber);
 
-numberButton.forEach((button) =>
-	button.addEventListener("click", () => setNumber(button.textContent))
-);
-function setNumber(number) {
-	if (currentOperand.textContent === "0" || resetNeeded) {
+const setNumber = (number) => {
+	// for some reason I can't set it to ===, will revisit
+	if ((currentOperand.textContent = "0" || resetNeeded)) {
 		resetScreen();
 	}
 	currentOperand.textContent += number;
-}
-
-operatorButton.forEach((button) =>
-	button.addEventListener("click", () => setOperator(button.textContent))
+};
+numberButton.forEach((button) =>
+	button.addEventListener("click", () => setNumber(button.textContent))
 );
-function setOperator(operator) {
+
+const setOperator = (operator) => {
 	if (operation !== null) {
 		evaluate();
 	}
@@ -53,37 +52,58 @@ function setOperator(operator) {
 	operation = operator;
 	previousOperand.textContent = `${firstNumber} ${operation}`;
 	resetNeeded = true;
-}
+};
+operatorButton.forEach((button) =>
+	button.addEventListener("click", () => setOperator(button.textContent))
+);
 
-equalButton.addEventListener("click", evaluate);
-function evaluate() {
+const setPoint = () => {
+	if (resetNeeded) {
+		resetScreen();
+	}
+	if (currentOperand.textContent === "") {
+		currentOperand.textContent === "0";
+	}
+	if (currentOperand.textContent.includes(".")) {
+		return;
+	}
+	currentOperand.textContent += ".";
+};
+pointButton.addEventListener("click", setPoint);
+
+const round = (number) => {
+	return Math.round(number * 1000) / 1000;
+};
+
+const evaluate = () => {
 	if ((operation === null) | resetNeeded) return;
 	if (operation === "÷" && currentOperand.textContent === "0") {
-		// alert("Not possible to divide by zero...");
-		// clearScreen();
+		alert("Not possible to divide by zero...");
+		clearScreen();
 		return;
 	}
 	secondNumber = currentOperand.textContent;
-	currentOperand.textContent = operate(operation, firstNumber, secondNumber);
+	currentOperand.textContent = round(
+		operate(operation, firstNumber, secondNumber)
+	);
 	previousOperand.textContent = `${firstNumber} ${operation} ${secondNumber} =`;
-	console.log(firstNumber);
-	console.log(operation);
-	console.log(secondNumber);
 	operation = null;
-}
-function addition(a, b) {
+};
+equalButton.addEventListener("click", evaluate);
+
+const addition = (a, b) => {
 	return a + b;
-}
-function subtraction(a, b) {
+};
+const subtraction = (a, b) => {
 	return a - b;
-}
-function multiplication(a, b) {
+};
+const multiplication = (a, b) => {
 	return a * b;
-}
-function division(a, b) {
+};
+const division = (a, b) => {
 	return a / b;
-}
-function operate(operator, a, b) {
+};
+const operate = (operator, a, b) => {
 	a = Number(a);
 	b = Number(b);
 	switch (operator) {
@@ -99,4 +119,4 @@ function operate(operator, a, b) {
 		default:
 			return null;
 	}
-}
+};

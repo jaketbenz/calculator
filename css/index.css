@@ -8,24 +8,38 @@ body {
 }
 .container {
 	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }
 .outputContainer {
+	display: flex;
+	flex-direction: column;
+	justify-content: end;
+	align-items: end;
 	height: 10rem;
-	width: 20.1rem;
+	width: 20rem;
 	background-color: black;
+	/* border-radius: 0.5rem; */
 }
-.outputContainer__previous,
-.outputContainer__current {
+.output__previous,
+.output__current {
 	color: white;
 	font-size: 3rem;
 }
 .buttonContainer {
-	width: 20.1rem;
-	border: 1px solid black;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 20rem;
+	/* border: 1px solid black; */
 	/* width: 20rem; */
 }
 button {
 	padding: 0 !important;
+	border: none;
+	/* border-radius: 0.5rem !important; */
 }
 .button__double {
 	height: 5rem;
@@ -54,6 +68,8 @@ button {
 	background-color: darkorange;
 }
 .footerContainer {
+	display: flex;
+	justify-content: center;
 	width: 100%;
 	position: absolute;
 	bottom: 0;

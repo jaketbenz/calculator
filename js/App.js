@@ -1,5 +1,5 @@
-const previousOperand = document.querySelector(".outputContainer__previous");
-const currentOperand = document.querySelector(".outputContainer__current");
+const previousOperand = document.querySelector(".output__previous");
+const currentOperand = document.querySelector(".output__current");
 const clearButton = document.querySelector(".clear");
 const deleteButton = document.querySelector(".delete");
 const numberButton = document.querySelectorAll("[data-number");
@@ -34,8 +34,7 @@ const deleteNumber = () => {
 deleteButton.addEventListener("click", deleteNumber);
 
 const setNumber = (number) => {
-	// for some reason I can't set it to ===, will revisit
-	if ((currentOperand.textContent = "0" || resetNeeded)) {
+	if (currentOperand.textContent === "0" || resetNeeded) {
 		resetScreen();
 	}
 	currentOperand.textContent += number;
@@ -62,7 +61,7 @@ const setPoint = () => {
 		resetScreen();
 	}
 	if (currentOperand.textContent === "") {
-		currentOperand.textContent === "0";
+		currentOperand.textContent = "0";
 	}
 	if (currentOperand.textContent.includes(".")) {
 		return;
@@ -76,7 +75,9 @@ const round = (number) => {
 };
 
 const evaluate = () => {
-	if ((operation === null) | resetNeeded) return;
+	if ((operation === null) | resetNeeded) {
+		return;
+	}
 	if (operation === "÷" && currentOperand.textContent === "0") {
 		alert("Not possible to divide by zero...");
 		clearScreen();
@@ -84,7 +85,7 @@ const evaluate = () => {
 	}
 	secondNumber = currentOperand.textContent;
 	currentOperand.textContent = round(
-		operate(operation, firstNumber, secondNumber)
+		operate(firstNumber, operation, secondNumber)
 	);
 	previousOperand.textContent = `${firstNumber} ${operation} ${secondNumber} =`;
 	operation = null;
@@ -103,20 +104,19 @@ const multiplication = (a, b) => {
 const division = (a, b) => {
 	return a / b;
 };
-const operate = (operator, a, b) => {
+const operate = (a, operator, b) => {
 	a = Number(a);
 	b = Number(b);
-	switch (operator) {
-		case "+":
-			return addition(a, b);
-		case "-":
-			return subtraction(a, b);
-		case "x":
-			return multiplication(a, b);
-		case "÷":
-			if (b === 0) return null;
-			else return division(a, b);
-		default:
-			return null;
+	if (operator === "plus" || operator === "+") {
+		return addition(a, b);
+	}
+	if (operator === "minus" || operator === "-") {
+		return subtraction(a, b);
+	}
+	if (operator === "multiply" || operator === "x" || operator === "*") {
+		return multiplication(a, b);
+	}
+	if (operator === "divide" || operator === "/" || operator === "÷") {
+		return division(a, b);
 	}
 };
